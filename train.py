@@ -10,6 +10,8 @@ from simple_ntc.data_loader import DataLoader
 from simple_ntc.models.rnn import RNNClassifier
 from simple_ntc.models.cnn import CNNClassifier
 
+import time
+
 
 def define_argparser():
     '''
@@ -17,16 +19,16 @@ def define_argparser():
     '''
     p = argparse.ArgumentParser()
 
-    p.add_argument('--model_fn', required=True) #모델 파일네임
-    p.add_argument('--train_fn', required=True) #학습에 쓸 트레인 파일, 이걸 train:val = 8:2로 쪼개서 쓸 것임.
+    p.add_argument('--model_fn', required=True)
+    p.add_argument('--train_fn', required=True)
     
-    p.add_argument('--gpu_id', type=int, default=-1) #cpu는 -1, gpu는 0부터
-    p.add_argument('--verbose', type=int, default=2) #얼마나 로그 자주 출력할거냐, 0:출력없음, 1: 에폭이 끝날때마다, 2: 이터레이션마다 정보주는걸로 코딩해놓음
+    p.add_argument('--gpu_id', type=int, default=-1)
+    p.add_argument('--verbose', type=int, default=1)
 
-    p.add_argument('--min_vocab_freq', type=int, default=5) #최소 5번 이상 나오는 단어들에 대해서만 클래시파이어가 학습을 하자.
+    p.add_argument('--min_vocab_freq', type=int, default=5)
     p.add_argument('--max_vocab_size', type=int, default=999999)
 
-    p.add_argument('--batch_size', type=int, default=256) #미니배치 싸이즈
+    p.add_argument('--batch_size', type=int, default=256)
     p.add_argument('--n_epochs', type=int, default=10)
 
     p.add_argument('--word_vec_size', type=int, default= 256)
@@ -34,12 +36,10 @@ def define_argparser():
 
     p.add_argument('--max_length', type=int, default=256)
     
-    #rnn 학습 시 파라미터
     p.add_argument('--rnn', action='store_true')
     p.add_argument('--hidden_size', type=int, default=512)
     p.add_argument('--n_layers', type=int, default=4)
-    
-    #cnn 학습 시 파라미터
+
     p.add_argument('--cnn', action='store_true')
     p.add_argument('--use_batch_norm', action='store_true')
     p.add_argument('--window_sizes', type=int, nargs='*', default=[3, 4, 5])
@@ -68,11 +68,9 @@ def main(config):
     n_classes = len(loaders.label.vocab)
     print('|vocab| =', vocab_size, '|classes| =', n_classes)
 
-    #rnn cnn둘다 안넣었으면 에러
     if config.rnn is False and config.cnn is False:
         raise Exception('You need to specify an architecture to train. (--rnn or --cnn)')
 
-    # rnn 파라미터로 받앗으면 rnn 학습
     if config.rnn:
         # Declare model and loss.
         model = RNNClassifier(
@@ -92,6 +90,11 @@ def main(config):
             crit.cuda(config.gpu_id)
 
         rnn_trainer = Trainer(config)
+
+        ## 시작 시간
+        start_time = time.time()
+        print("Start Time:", start_time)
+
         rnn_model = rnn_trainer.train(
             model,
             crit,
@@ -99,6 +102,11 @@ def main(config):
             loaders.train_loader,
             loaders.valid_loader
         )
+
+        ## 종료 시간
+        end_time = time.time()
+        print("End Time:", end_time)
+
     if config.cnn:
         # Declare model and loss.
         model = CNNClassifier(
@@ -119,6 +127,11 @@ def main(config):
             crit.cuda(config.gpu_id)
 
         cnn_trainer = Trainer(config)
+
+        ## 시작 시간
+        start_time = time.time()
+        print("Start Time:", start_time)
+
         cnn_model = cnn_trainer.train(
             model,
             crit,
@@ -127,13 +140,20 @@ def main(config):
             loaders.valid_loader
         )
 
+        ## 종료 시간
+        end_time = time.time()
+        print("End Time:", end_time)
+
+    execution_time = end_time - start_time
+    print("Execution Time:", execution_time)
+
     torch.save({
         'rnn': rnn_model.state_dict() if config.rnn else None,
         'cnn': cnn_model.state_dict() if config.cnn else None,
         'config': config,
         'vocab': loaders.text.vocab,
         'classes': loaders.label.vocab,
-    }, config.model_fn) # config.model_fn 파일 이름으로 저장
+    }, config.model_fn)
 
 
 if __name__ == '__main__':

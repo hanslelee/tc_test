@@ -3,6 +3,10 @@ import argparse
 
 import torch
 import torch.nn as nn
+
+import time
+
+import torchtext
 version = list(map(int, torchtext.__version__.split('.')))
 if version[0] <= 0 and version[1] < 9:
     from torchtext import data
@@ -22,7 +26,7 @@ def define_argparser():
     p.add_argument('--model_fn', required=True)
     p.add_argument('--gpu_id', type=int, default=-1)
     p.add_argument('--batch_size', type=int, default=256)
-    p.add_argument('--top_k', type=int, default=1) #하나뿐만 아니라 확률 높은 클래스 더 보여줌
+    p.add_argument('--top_k', type=int, default=1)
     p.add_argument('--max_length', type=int, default=256)
     
     p.add_argument('--drop_rnn', action='store_true')
@@ -39,9 +43,14 @@ def read_text(max_length=256):
     '''
     lines = []
 
-    for line in sys.stdin:
-        if line.strip() != '':
-            lines += [line.strip().split(' ')[:max_length]]
+    # for line in sys.stdin:
+    #     if line.strip() != '':
+    #         lines += [line.strip().split(' ')[:max_length]]
+
+    # f = open("./data/test.tsv", encoding='UTF-8')
+    # f = open("./data/test_corpus_shuffled_without_label.tsv", encoding='UTF-8')
+    f = open("./data/test.tsv", encoding='UTF-8')
+    lines = f.readlines()
 
     return lines
 
@@ -86,6 +95,10 @@ def main(config):
 
     lines = read_text(max_length=config.max_length)
 
+    ## 시작 시간
+    start_time = time.time()
+    print("Start Time:", start_time)
+
     with torch.no_grad():
         ensemble = []
         if rnn_best is not None and not config.drop_rnn:
@@ -122,7 +135,7 @@ def main(config):
             # Don't forget turn-on evaluation mode.
             model.eval()
 
-            y_hat = [] #mini batch 다룰 것
+            y_hat = []
             for idx in range(0, len(lines), config.batch_size):                
                 # Converts string to list of index.
                 x = text_field.numericalize(
@@ -146,11 +159,26 @@ def main(config):
 
         probs, indice = y_hats.topk(config.top_k)
 
-        for i in range(len(lines)):
-            sys.stdout.write('%s\t%s\n' % (
-                ' '.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
-                ' '.join(lines[i])
-            ))
+        ## 종료 시간
+        end_time = time.time()
+        print("End Time:", end_time)
+        
+        execution_time = end_time - start_time
+        print("Execution Time:", execution_time)
+
+        # f = open("./logs/rnn_test_log.txt", 'w', encoding='UTF-8')
+        # lines = f.readlines()
+        with open('./logs/rnn_test_log.txt', 'w', encoding='utf-8') as f:
+            for i in range(len(lines)):
+                sys.stdout.write('%s\t%s\n' % (
+                    ' '.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
+                    ' '.join(lines[i])
+                ))
+                f.writelines('%s\t%s' % (
+                    ''.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
+                    ''.join(lines[i])
+                ))
+        # f.close()
 
 
 if __name__ == '__main__':

@@ -40,8 +40,8 @@ class MyEngine(Engine):
         engine.model.train() # Because we assign model as class variable, we can easily access to it.
         engine.optimizer.zero_grad()
 
-        x, y = mini_batch.text, mini_batch.label #x는 원핫 벡터에 인덱스가 들어잇는 롱 텐서, y는 원핫벡터에 클랙스 인덱스가 들어잇는 롱텐서
-        x, y = x.to(engine.device), y.to(engine.device) #x,y를 모델과 같은 디바이스로 옮겨줌
+        x, y = mini_batch.text, mini_batch.label
+        x, y = x.to(engine.device), y.to(engine.device)
 
         x = x[:, :engine.config.max_length]
 
@@ -72,7 +72,7 @@ class MyEngine(Engine):
         }
 
     @staticmethod
-    def validate(engine, mini_batch): #트레인에서 백프로파게이션과 그라디언트 디센트만 없음
+    def validate(engine, mini_batch):
         engine.model.eval()
 
         with torch.no_grad():
@@ -95,7 +95,6 @@ class MyEngine(Engine):
             'accuracy': float(accuracy),
         }
 
-    # 에폭 출력하는 부분
     @staticmethod
     def attach(train_engine, validation_engine, verbose=VERBOSE_BATCH_WISE):
         # Attaching would be repaeted for serveral metrics.
@@ -195,13 +194,13 @@ class Trainer():
             validation_engine.run(valid_loader, max_epochs=1)
 
         train_engine.add_event_handler(
-            Events.EPOCH_COMPLETED, # event (에폭이 끝나면)
-            run_validation, # function (이 함수를 실행해라)
+            Events.EPOCH_COMPLETED, # event
+            run_validation, # function
             validation_engine, valid_loader, # arguments
         )
         validation_engine.add_event_handler(
-            Events.EPOCH_COMPLETED, # event (에폭이 끝나면)
-            MyEngine.check_best, # function (모델 세이브해라)
+            Events.EPOCH_COMPLETED, # event
+            MyEngine.check_best, # function
         )
 
         train_engine.run(
@@ -209,6 +208,6 @@ class Trainer():
             max_epochs=self.config.n_epochs,
         )
 
-        model.load_state_dict(validation_engine.best_model) #밸리데이션 로스 가장 낮았던 모델
+        model.load_state_dict(validation_engine.best_model)
 
         return model
