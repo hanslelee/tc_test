@@ -47,9 +47,7 @@ def read_text(max_length=256):
     #     if line.strip() != '':
     #         lines += [line.strip().split(' ')[:max_length]]
 
-    # f = open("./data/test.tsv", encoding='UTF-8')
-    # f = open("./data/test_corpus_shuffled_without_label.tsv", encoding='UTF-8')
-    f = open("./data/test.tsv", encoding='UTF-8')
+    f = open("./data/test_input.tsv", encoding='UTF-8')
     lines = f.readlines()
 
     return lines
@@ -166,14 +164,14 @@ def main(config):
         execution_time = end_time - start_time
         print("Execution Time:", execution_time)
 
-        # f = open("./logs/rnn_test_log.txt", 'w', encoding='UTF-8')
-        # lines = f.readlines()
-        with open('./logs/rnn_test_log.txt', 'w', encoding='utf-8') as f:
+        rnn_output_file = './output/rnn_test_output.txt'
+        cnn_output_file = './output/cnn_test_output.txt'
+        with open(cnn_output_file, 'w', encoding='utf-8') as f:
             for i in range(len(lines)):
-                sys.stdout.write('%s\t%s\n' % (
-                    ' '.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
-                    ' '.join(lines[i])
-                ))
+                # sys.stdout.write('%s\t%s\n' % (
+                #     ' '.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
+                #     ' '.join(lines[i])
+                # ))
                 f.writelines('%s\t%s' % (
                     ''.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
                     ''.join(lines[i])
