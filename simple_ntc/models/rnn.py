@@ -32,6 +32,9 @@ class RNNClassifier(nn.Module):
         )
         self.generator = nn.Linear(hidden_size * 2, n_classes)
         # We use LogSoftmax + NLLLoss instead of Softmax + CrossEntropy
+        # NLL(MLE문제)은 LogSoftmax와 결합하면 CrossEntropyLoss와 수학적으로 동일합니다. 
+        # 따라서 LogSoftmax + NLLLoss를 사용하는 것은 Softmax 작업이 CrossEntropy 손실과 별개인 Softmax + CrossEntropy에 비해 손실을 계산하는 데 
+        # 더 직접적이고 개념적으로 더 명확합니다.
         self.activation = nn.LogSoftmax(dim=-1)
 
     def forward(self, x):
