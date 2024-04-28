@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/e4e128141f2e4a37935d0f071652985b/artifacts
+end_time: 1714295439099
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e4e128141f2e4a37935d0f071652985b
+run_name: grandiose-fowl-838
+run_uuid: e4e128141f2e4a37935d0f071652985b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714294476753
+status: 3
+tags: []
+user_id: 신용준

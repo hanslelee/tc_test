@@ -1,0 +1,31 @@
+|train| = 69918 |valid| = 17479
+|vocab| = 12428 |classes| = 2
+RNNClassifier(
+  (emb): Embedding(12428, 256)
+  (rnn): LSTM(256, 512, num_layers=4, batch_first=True, dropout=0.3, bidirectional=True)
+  (generator): Linear(in_features=1024, out_features=2, bias=True)
+  (activation): LogSoftmax(dim=-1)
+)
+Start Time: 1714294478.8103666
+Epoch 1 - |param|=1.79e+03 |g_param|=4.16e-01 loss=1.3354e-01 accuracy=0.9488
+Validation - loss=1.6462e-01 accuracy=0.9330 best_loss=inf
+Epoch 2 - |param|=1.79e+03 |g_param|=3.27e-01 loss=7.9160e-02 accuracy=0.9709
+Validation - loss=1.4378e-01 accuracy=0.9384 best_loss=1.6462e-01
+Epoch 3 - |param|=1.79e+03 |g_param|=3.06e-01 loss=5.3461e-02 accuracy=0.9807
+Validation - loss=1.4018e-01 accuracy=0.9431 best_loss=1.4378e-01
+Epoch 4 - |param|=1.79e+03 |g_param|=2.87e-01 loss=3.1937e-02 accuracy=0.9888
+Validation - loss=1.8722e-01 accuracy=0.9428 best_loss=1.4018e-01
+Epoch 5 - |param|=1.79e+03 |g_param|=2.79e-01 loss=2.2414e-02 accuracy=0.9923
+Validation - loss=1.7862e-01 accuracy=0.9436 best_loss=1.4018e-01
+Epoch 6 - |param|=1.79e+03 |g_param|=2.88e-01 loss=1.9641e-02 accuracy=0.9938
+Validation - loss=1.9603e-01 accuracy=0.9421 best_loss=1.4018e-01
+Epoch 7 - |param|=1.79e+03 |g_param|=2.00e-01 loss=1.1618e-02 accuracy=0.9963
+Validation - loss=2.2376e-01 accuracy=0.9481 best_loss=1.4018e-01
+Epoch 8 - |param|=1.79e+03 |g_param|=1.56e-01 loss=7.8310e-03 accuracy=0.9974
+Validation - loss=2.6968e-01 accuracy=0.9493 best_loss=1.4018e-01
+Epoch 9 - |param|=1.79e+03 |g_param|=1.50e-01 loss=7.8544e-03 accuracy=0.9972
+Validation - loss=2.5891e-01 accuracy=0.9484 best_loss=1.4018e-01
+Epoch 10 - |param|=1.79e+03 |g_param|=1.57e-01 loss=6.6320e-03 accuracy=0.9979
+Validation - loss=2.7037e-01 accuracy=0.9502 best_loss=1.4018e-01
+End Time: 1714295438.477928
+Execution Time: 959.6675612926483

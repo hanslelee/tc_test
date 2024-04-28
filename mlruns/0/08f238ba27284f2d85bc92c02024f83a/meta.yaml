@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/08f238ba27284f2d85bc92c02024f83a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 08f238ba27284f2d85bc92c02024f83a
+run_name: chill-panda-84
+run_uuid: 08f238ba27284f2d85bc92c02024f83a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714302419183
+status: 1
+tags: []
+user_id: 신용준

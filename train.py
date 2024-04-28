@@ -12,6 +12,10 @@ from simple_ntc.models.cnn import CNNClassifier
 
 import time
 
+import mlflow.pytorch
+from mlflow import MlflowClient
+
+
 
 def define_argparser():
     '''
@@ -51,6 +55,8 @@ def define_argparser():
 
 
 def main(config):
+    mlflow.start_run()
+
     loaders = DataLoader(
         train_fn=config.train_fn,
         batch_size=config.batch_size,
@@ -58,6 +64,11 @@ def main(config):
         max_vocab=config.max_vocab_size,
         device=config.gpu_id
     )
+
+    mlflow.log_param('batch_size', config.batch_size)
+    mlflow.log_param('n_epochs', config.n_epochs)
+    mlflow.log_param('word_vec_size', config.word_vec_size)
+    mlflow.log_param('dropout', config.dropout)
 
     print(
         '|train| =', len(loaders.train_loader.dataset),
@@ -154,6 +165,10 @@ def main(config):
         'vocab': loaders.text.vocab,
         'classes': loaders.label.vocab,
     }, config.model_fn)
+
+    # mlflow 실험 종료
+    mlflow.end_run()
+
 
 
 if __name__ == '__main__':

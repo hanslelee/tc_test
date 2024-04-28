@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/4d759bc8b21a43b8863df7969da6eb05/artifacts
+end_time: 1714305624275
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4d759bc8b21a43b8863df7969da6eb05
+run_name: entertaining-gnu-933
+run_uuid: 4d759bc8b21a43b8863df7969da6eb05
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714304548753
+status: 3
+tags: []
+user_id: 신용준

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/be4c4010a39e4edca2b78bb30b34022f/artifacts
+end_time: 1714304344468
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: be4c4010a39e4edca2b78bb30b34022f
+run_name: burly-gull-200
+run_uuid: be4c4010a39e4edca2b78bb30b34022f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714304329072
+status: 3
+tags: []
+user_id: 신용준

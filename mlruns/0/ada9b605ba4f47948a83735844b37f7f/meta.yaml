@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/ada9b605ba4f47948a83735844b37f7f/artifacts
+end_time: 1714298498747
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ada9b605ba4f47948a83735844b37f7f
+run_name: valuable-wolf-222
+run_uuid: ada9b605ba4f47948a83735844b37f7f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714298470830
+status: 3
+tags: []
+user_id: 신용준

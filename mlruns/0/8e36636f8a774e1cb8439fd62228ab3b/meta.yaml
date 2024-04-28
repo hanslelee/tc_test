@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/8e36636f8a774e1cb8439fd62228ab3b/artifacts
+end_time: 1714306317751
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8e36636f8a774e1cb8439fd62228ab3b
+run_name: able-sheep-768
+run_uuid: 8e36636f8a774e1cb8439fd62228ab3b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714306304089
+status: 3
+tags: []
+user_id: 신용준

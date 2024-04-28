@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/2d087a4e5d8649689ff20de0a3328c7c/artifacts
+end_time: 1714306270913
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2d087a4e5d8649689ff20de0a3328c7c
+run_name: luxuriant-toad-88
+run_uuid: 2d087a4e5d8649689ff20de0a3328c7c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714305777791
+status: 3
+tags: []
+user_id: 신용준

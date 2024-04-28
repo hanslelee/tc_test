@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/ec33ca73f42f478d9613960c862af745/artifacts
+end_time: 1714297613747
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ec33ca73f42f478d9613960c862af745
+run_name: peaceful-chimp-360
+run_uuid: ec33ca73f42f478d9613960c862af745
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714297593617
+status: 3
+tags: []
+user_id: 신용준

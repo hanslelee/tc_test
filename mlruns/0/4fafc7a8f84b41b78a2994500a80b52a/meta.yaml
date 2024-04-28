@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/4fafc7a8f84b41b78a2994500a80b52a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4fafc7a8f84b41b78a2994500a80b52a
+run_name: brawny-horse-760
+run_uuid: 4fafc7a8f84b41b78a2994500a80b52a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714298983933
+status: 1
+tags: []
+user_id: 신용준

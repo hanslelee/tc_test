@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/c9cf9b34e5f14799a6bc28c7f2bf9fd0/artifacts
+end_time: 1714307450255
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c9cf9b34e5f14799a6bc28c7f2bf9fd0
+run_name: rare-hound-720
+run_uuid: c9cf9b34e5f14799a6bc28c7f2bf9fd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714307447960
+status: 3
+tags: []
+user_id: 신용준

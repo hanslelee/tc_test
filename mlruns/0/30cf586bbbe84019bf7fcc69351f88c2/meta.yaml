@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/30cf586bbbe84019bf7fcc69351f88c2/artifacts
+end_time: 1714305666789
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 30cf586bbbe84019bf7fcc69351f88c2
+run_name: honorable-grouse-123
+run_uuid: 30cf586bbbe84019bf7fcc69351f88c2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714305650961
+status: 3
+tags: []
+user_id: 신용준

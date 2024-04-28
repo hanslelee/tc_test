@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/e5999c5eea664cabbe4ae468b7f54a85/artifacts
+end_time: 1714302575929
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e5999c5eea664cabbe4ae468b7f54a85
+run_name: likeable-chimp-680
+run_uuid: e5999c5eea664cabbe4ae468b7f54a85
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714302487611
+status: 3
+tags: []
+user_id: 신용준

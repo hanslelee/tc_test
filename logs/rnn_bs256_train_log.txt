@@ -1,0 +1,17 @@
+|train| = 69918 |valid| = 17479
+|vocab| = 12498 |classes| = 2
+RNNClassifier(
+  (emb): Embedding(12498, 256)
+  (rnn): LSTM(256, 512, num_layers=4, batch_first=True, dropout=0.3, bidirectional=True)
+  (generator): Linear(in_features=1024, out_features=2, bias=True)
+  (activation): LogSoftmax(dim=-1)
+)
+Start Time: 1714298985.5265834
+Epoch 1 - |param|=1.79e+03 |g_param|=2.72e-01 loss=1.2764e-01 accuracy=0.9499
+Validation - loss=1.6233e-01 accuracy=0.9429 best_loss=inf
+Epoch 2 - |param|=1.79e+03 |g_param|=3.03e-01 loss=8.0876e-02 accuracy=0.9693
+Validation - loss=1.3481e-01 accuracy=0.9469 best_loss=1.6233e-01
+Epoch 3 - |param|=1.80e+03 |g_param|=2.72e-01 loss=5.2274e-02 accuracy=0.9800
+Validation - loss=1.4463e-01 accuracy=0.9513 best_loss=1.3481e-01
+Epoch 4 - |param|=1.80e+03 |g_param|=2.49e-01 loss=3.8275e-02 accuracy=0.9875
+Validation - loss=1.6224e-01 accuracy=0.9531 best_loss=1.3481e-01

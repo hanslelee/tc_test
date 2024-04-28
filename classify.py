@@ -16,6 +16,11 @@ else:
 from simple_ntc.models.rnn import RNNClassifier
 from simple_ntc.models.cnn import CNNClassifier
 
+import mlflow
+
+from model_results.get_accuracy import calculate_accuracy
+from model_results.get_f1_score import calculate_f1_score
+
 
 def define_argparser():
     '''
@@ -24,6 +29,7 @@ def define_argparser():
     p = argparse.ArgumentParser()
 
     p.add_argument('--model_fn', required=True)
+    p.add_argument('--output_fn', required=True)
     p.add_argument('--gpu_id', type=int, default=-1)
     p.add_argument('--batch_size', type=int, default=256)
     p.add_argument('--top_k', type=int, default=1)
@@ -73,6 +79,9 @@ def define_field():
 
 
 def main(config):
+    mlflow.start_run()
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
     saved_data = torch.load(
         config.model_fn,
         map_location='cpu' if config.gpu_id < 0 else 'cuda:%d' % config.gpu_id
@@ -164,9 +173,9 @@ def main(config):
         execution_time = end_time - start_time
         print("Execution Time:", execution_time)
 
-        rnn_output_file = './output/rnn_test_output.txt'
-        cnn_output_file = './output/cnn_test_output.txt'
-        with open(cnn_output_file, 'w', encoding='utf-8') as f:
+        # rnn_output_file = './output/rnn_test_output_bs256_epoch20.txt'
+        # cnn_output_file = './output/cnn_test_output_bs256.txt'
+        with open(config.output_fn, 'w', encoding='utf-8') as f:
             for i in range(len(lines)):
                 # sys.stdout.write('%s\t%s\n' % (
                 #     ' '.join([classes.itos[indice[i][j]] for j in range(config.top_k)]), 
@@ -177,6 +186,31 @@ def main(config):
                     ''.join(lines[i])
                 ))
         # f.close()
+
+        answer_file = './data/test_answer.tsv'
+        model_accuracy = calculate_accuracy(answer_file, config.output_fn)
+        true_positives, false_positives, false_negatives, precision, recall, f1_score = calculate_f1_score(answer_file, config.output_fn)
+
+        # 추론 결과 기록
+        mlflow.log_param('batch_size', config.batch_size)
+        mlflow.log_param('top_k', config.top_k)
+        mlflow.log_param('max_length', config.max_length)
+        mlflow.log_param('drop_rnn', config.drop_rnn)
+        mlflow.log_param('drop_cnn', config.drop_cnn)
+        mlflow.log_metric('execution_time', execution_time)
+        mlflow.log_metric('model_accuracy', model_accuracy)
+        mlflow.log_metric('true_positives', true_positives)
+        mlflow.log_metric('false_positives', false_positives)
+        mlflow.log_metric('false_negatives', false_negatives)
+        mlflow.log_metric('precision', precision)
+        mlflow.log_metric('recall', recall)
+        mlflow.log_metric('f1_score', f1_score)
+
+        # 추론 결과 파일 기록
+        mlflow.log_artifact(config.output_fn, 'rnn_output')
+        # mlflow.log_artifact(cnn_output_file, 'cnn_output')
+
+        mlflow.end_run()
 
 
 if __name__ == '__main__':
