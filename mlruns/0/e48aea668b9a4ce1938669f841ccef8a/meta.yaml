@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/e48aea668b9a4ce1938669f841ccef8a/artifacts
+end_time: 1714312172750
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e48aea668b9a4ce1938669f841ccef8a
+run_name: amazing-crane-94
+run_uuid: e48aea668b9a4ce1938669f841ccef8a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714312118856
+status: 3
+tags: []
+user_id: 신용준

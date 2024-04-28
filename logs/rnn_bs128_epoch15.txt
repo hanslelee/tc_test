@@ -1,0 +1,41 @@
+|train| = 69918 |valid| = 17479
+|vocab| = 12447 |classes| = 2
+RNNClassifier(
+  (emb): Embedding(12447, 256)
+  (rnn): LSTM(256, 512, num_layers=4, batch_first=True, dropout=0.3, bidirectional=True)
+  (generator): Linear(in_features=1024, out_features=2, bias=True)
+  (activation): LogSoftmax(dim=-1)
+)
+Start Time: 1714312956.8956747
+Epoch 1 - |param|=1.79e+03 |g_param|=2.82e-01 loss=1.0802e-01 accuracy=0.9601
+Validation - loss=9.9251e-02 accuracy=0.9656 best_loss=inf
+Epoch 2 - |param|=1.79e+03 |g_param|=2.07e-01 loss=7.1415e-02 accuracy=0.9724
+Validation - loss=7.3396e-02 accuracy=0.9727 best_loss=9.9251e-02
+Epoch 3 - |param|=1.79e+03 |g_param|=1.97e-01 loss=4.5287e-02 accuracy=0.9825
+Validation - loss=8.7955e-02 accuracy=0.9715 best_loss=7.3396e-02
+Epoch 4 - |param|=1.80e+03 |g_param|=1.61e-01 loss=2.8879e-02 accuracy=0.9896
+Validation - loss=8.7781e-02 accuracy=0.9724 best_loss=7.3396e-02
+Epoch 5 - |param|=1.80e+03 |g_param|=1.39e-01 loss=1.6666e-02 accuracy=0.9940
+Validation - loss=1.1771e-01 accuracy=0.9753 best_loss=7.3396e-02
+Epoch 6 - |param|=1.80e+03 |g_param|=1.25e-01 loss=1.0556e-02 accuracy=0.9961
+Validation - loss=1.0229e-01 accuracy=0.9741 best_loss=7.3396e-02
+Epoch 7 - |param|=1.80e+03 |g_param|=1.39e-01 loss=1.1195e-02 accuracy=0.9964
+Validation - loss=1.0942e-01 accuracy=0.9769 best_loss=7.3396e-02
+Epoch 8 - |param|=1.80e+03 |g_param|=9.36e-02 loss=7.4060e-03 accuracy=0.9979
+Validation - loss=1.1074e-01 accuracy=0.9758 best_loss=7.3396e-02
+Epoch 9 - |param|=1.81e+03 |g_param|=1.09e-01 loss=6.9368e-03 accuracy=0.9979
+Validation - loss=1.4022e-01 accuracy=0.9729 best_loss=7.3396e-02
+Epoch 10 - |param|=1.81e+03 |g_param|=1.00e-01 loss=7.9297e-03 accuracy=0.9973
+Validation - loss=1.1036e-01 accuracy=0.9762 best_loss=7.3396e-02
+Epoch 11 - |param|=1.81e+03 |g_param|=5.73e-02 loss=3.3651e-03 accuracy=0.9987
+Validation - loss=1.5875e-01 accuracy=0.9731 best_loss=7.3396e-02
+Epoch 12 - |param|=1.81e+03 |g_param|=4.98e-02 loss=3.0149e-03 accuracy=0.9989
+Validation - loss=1.4973e-01 accuracy=0.9734 best_loss=7.3396e-02
+Epoch 13 - |param|=1.81e+03 |g_param|=8.07e-02 loss=5.6747e-03 accuracy=0.9986
+Validation - loss=1.0385e-01 accuracy=0.9733 best_loss=7.3396e-02
+Epoch 14 - |param|=1.81e+03 |g_param|=8.90e-02 loss=5.3480e-03 accuracy=0.9981
+Validation - loss=1.5195e-01 accuracy=0.9736 best_loss=7.3396e-02
+Epoch 15 - |param|=1.82e+03 |g_param|=7.95e-02 loss=3.8992e-03 accuracy=0.9987
+Validation - loss=1.3175e-01 accuracy=0.9739 best_loss=7.3396e-02
+End Time: 1714313673.253046
+Execution Time: 716.3573713302612

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/6a17c2b423e24ba189b4c5bc8a5f8b52/artifacts
+end_time: 1714314634974
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6a17c2b423e24ba189b4c5bc8a5f8b52
+run_name: nimble-smelt-141
+run_uuid: 6a17c2b423e24ba189b4c5bc8a5f8b52
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714313822389
+status: 3
+tags: []
+user_id: 신용준

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/dfd0418f72844e769a691fa737b09970/artifacts
+end_time: 1714313717690
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dfd0418f72844e769a691fa737b09970
+run_name: rare-shrew-574
+run_uuid: dfd0418f72844e769a691fa737b09970
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714313705573
+status: 3
+tags: []
+user_id: 신용준

@@ -5,12 +5,16 @@ python train.py --model_fn ./model_results/rnn_bs256_2.pth --train_fn ./data/tra
 python train.py --model_fn ./model_results/rnn_bs256_epoch20.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=256 --n_epochs 20 --verbose 1 --rnn --gpu_id 0 > ./logs/rnn_bs256_epoch20.txt
 python train.py --model_fn ./model_results/rnn_bs256_epoch15.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=256 --n_epochs 15 --verbose 1 --rnn --gpu_id 0 > ./logs/rnn_bs256_epoch15.txt
 python train.py --model_fn ./model_results/rnn_bs128_epoch10.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=128 --n_epochs 10 --verbose 1 --rnn --gpu_id 0 > ./logs/rnn_bs128_epoch10.txt
+python train.py --model_fn ./model_results/rnn_bs128_epoch15.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=128 --n_epochs 15 --verbose 1 --rnn --gpu_id 0 > ./logs/rnn_bs128_epoch15.txt
+python train.py --model_fn ./model_results/rnn_bs64_epoch15.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=64 --n_epochs 15 --verbose 1 --rnn --gpu_id 0 > ./logs/rnn_bs64_epoch15.txt
 
 # rnn 추론 명령어
 python classify.py --model_fn ./model_results/rnn_model.pth --gpu_id 0 > ./logs/rnn_test_log.txt
 python classify.py --model_fn ./model_results/rnn_bs256_2.pth --gpu_id 0 
 python classify.py --model_fn ./model_results/rnn_bs256_epoch20.pth --gpu_id 0 --output_fn ./output/rnn_test_output_bs256_epoch20.txt
 python classify.py --model_fn ./model_results/rnn_bs128_epoch10.pth --gpu_id 0 --output_fn ./output/rnn_bs128_epoch10.txt
+python classify.py --model_fn ./model_results/rnn_bs128_epoch15.pth --gpu_id 0 --output_fn ./output/rnn_bs128_epoch15.txt
+python classify.py --model_fn ./model_results/rnn_bs64_epoch15.pth --gpu_id 0 --output_fn ./output/rnn_bs64_epoch15.txt
 # python classify.py --model_fn ./model_results/rnn_model.pth --gpu_id 0 | tee ./logs/rnn_test_log.txt
 
 # rnn 모델 정확도
@@ -25,10 +29,12 @@ python ./model_results/get_accuracy.py ./data/test_answer.tsv ./output/rnn_test_
 python train.py --model_fn ./model_results/cnn_model.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=128 --n_epochs 10 --verbose 1 --cnn --gpu_id 0 > ./logs/cnn_train_log.txt
 python train.py --model_fn ./model_results/cnn_model.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=128 --n_epochs 10 --verbose 1 --cnn --gpu_id 0 > ./logs/cnn_train_log.txt
 python train.py --model_fn ./model_results/cnn_bs128_epoch10.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=128 --n_epochs 10 --verbose 1 --cnn --gpu_id 0 > ./logs/cnn_bs128_epoch10.txt
+python train.py --model_fn ./model_results/cnn_bs256_epoch10.pth --train_fn ./data/train_corpus_shuffled.tsv --batch_size=256 --n_epochs 10 --verbose 1 --cnn --gpu_id 0 > ./logs/cnn_bs256_epoch10.txt
 
 # cnn 추론 명령어
 python classify.py --model_fn ./model_results/cnn_model.pth --gpu_id 0 > ./logs/cnn_test_log.txt
 python classify.py --model_fn ./model_results/cnn_bs128_epoch10.pth --gpu_id 0 --output_fn ./output/cnn_bs128_epoch10.txt
+python classify.py --model_fn ./model_results/cnn_bs256_epoch10.pth --gpu_id 0 --output_fn ./output/cnn_bs256_epoch10.txt
 
 # cnn 모델 정확도
 python ./model_results/get_accuracy.py ./data/test_answer.tsv ./output/cnn_test_output.txt >> ./logs/cnn_result_accuracy.txt

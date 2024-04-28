@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/bd8701d4c8424b008e1bbf348b9ce90d/artifacts
+end_time: 1714312861073
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bd8701d4c8424b008e1bbf348b9ce90d
+run_name: peaceful-conch-162
+run_uuid: bd8701d4c8424b008e1bbf348b9ce90d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714312858865
+status: 3
+tags: []
+user_id: 신용준
