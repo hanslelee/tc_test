@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/073a221753eb4d60a26d3c40d9a844be/artifacts
+end_time: 1714563083527
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 073a221753eb4d60a26d3c40d9a844be
+run_name: abundant-bass-614
+run_uuid: 073a221753eb4d60a26d3c40d9a844be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714562111704
+status: 3
+tags: []
+user_id: 신용준

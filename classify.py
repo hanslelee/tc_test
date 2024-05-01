@@ -53,7 +53,7 @@ def read_text(max_length=256):
     #     if line.strip() != '':
     #         lines += [line.strip().split(' ')[:max_length]]
 
-    f = open("./data/test_input.tsv", encoding='UTF-8')
+    f = open("./data/240501/test_input.txt", encoding='UTF-8')
     lines = f.readlines()
 
     return lines
@@ -187,7 +187,7 @@ def main(config):
                 ))
         # f.close()
 
-        answer_file = './data/test_answer.tsv'
+        answer_file = './data/240501/test_answer.txt'
         model_accuracy = calculate_accuracy(answer_file, config.output_fn)
         true_positives, false_positives, false_negatives, precision, recall, f1_score = calculate_f1_score(answer_file, config.output_fn)
 

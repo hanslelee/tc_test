@@ -14,7 +14,7 @@ class DataLoader(object):
     def __init__(
         self, train_fn,
         batch_size=64,
-        valid_ratio=.2,
+        valid_ratio=.1,
         device=-1,
         max_vocab=999999,
         min_freq=1,
@@ -58,7 +58,7 @@ class DataLoader(object):
                 ('label', self.label),
                 ('text', self.text),
             ],
-        ).split(split_ratio=(1 - valid_ratio))
+        ).split(split_ratio=(0.9 - valid_ratio))
 
         # Those loaded dataset would be feeded into each iterator:
         # train iterator and valid iterator.

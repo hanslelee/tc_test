@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/23c6b0cc207d41269aefa4b8334ab202/artifacts
+end_time: 1714566998070
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 23c6b0cc207d41269aefa4b8334ab202
+run_name: stylish-moth-976
+run_uuid: 23c6b0cc207d41269aefa4b8334ab202
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714566996124
+status: 3
+tags: []
+user_id: 신용준

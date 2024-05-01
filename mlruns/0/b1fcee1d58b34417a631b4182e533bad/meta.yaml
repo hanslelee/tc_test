@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/b1fcee1d58b34417a631b4182e533bad/artifacts
+end_time: 1714562077772
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b1fcee1d58b34417a631b4182e533bad
+run_name: adventurous-jay-602
+run_uuid: b1fcee1d58b34417a631b4182e533bad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714562077721
+status: 3
+tags: []
+user_id: 신용준

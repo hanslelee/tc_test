@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/059001f41e104dee94ef923d4759acf0/artifacts
+end_time: 1714565428353
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 059001f41e104dee94ef923d4759acf0
+run_name: sedate-dog-193
+run_uuid: 059001f41e104dee94ef923d4759acf0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714564909607
+status: 3
+tags: []
+user_id: 신용준
